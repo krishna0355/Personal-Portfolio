@@ -8,7 +8,7 @@ const SibApiV3Sdk = require("@sendinblue/client");
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "*" })); // loosen later to only your domain if needed
+app.use(cors({ origin: "*" })); // later restrict to your domain
 app.use(express.json());
 
 // --- Brevo (Sendinblue) setup ---
@@ -21,15 +21,19 @@ brevo.setApiKey(
 // --- Contact form route ---
 app.post("/api/contact", async (req, res) => {
   try {
+    console.log("📩 Incoming request body:", req.body);
+
     const { firstName, lastName, email, phone, message } = req.body || {};
     if (!firstName || !lastName || !email || !message) {
+      console.warn("⚠️ Missing required fields:", req.body);
       return res.status(400).json({ code: 400, status: "Bad Request" });
     }
 
     const name = `${firstName} ${lastName}`;
 
+    // Sender must be from your verified Brevo domain
     const sendSmtpEmail = {
-      sender: { email: "no-reply@yourdomain.com", name: "Portfolio Contact" }, // fixed sender
+      sender: { email: "krishnakumaragarwal99@gmail.com", name: "Portfolio Contact" },
       to: [{ email: process.env.EMAIL_TO }],
       subject: `Portfolio Contact Form - ${name}`,
       htmlContent: `
@@ -40,15 +44,22 @@ app.post("/api/contact", async (req, res) => {
         <p><strong>Message:</strong></p>
         <p>${(message || "").replace(/\n/g, "<br/>")}</p>
       `,
+      replyTo: { email, name }, // lets you reply directly to sender
     };
 
-    await brevo.sendTransacEmail(sendSmtpEmail);
+    console.log("📤 Sending email via Brevo:", sendSmtpEmail);
 
-    console.log("✅ Email sent successfully");
+    const response = await brevo.sendTransacEmail(sendSmtpEmail);
+
+    console.log("✅ Email sent successfully. Brevo response:", response);
     res.status(200).json({ code: 200, status: "Message Sent" });
   } catch (error) {
-    console.error("❌ Email send error:", error);
-    res.status(500).json({ code: 500, status: "Message Failed" });
+    console.error("❌ Email send error:", error.response?.body || error.message);
+    res.status(500).json({
+      code: 500,
+      status: "Message Failed",
+      error: error.response?.body || error.message,
+    });
   }
 });
 
