@@ -1,36 +1,123 @@
-# Personal Portfolio Website in React
+# 🌌 Krishna Agarwal – Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🔗 **Live Demo:** [#]
 
-<img width="1266" alt="Screen Shot 2022-06-19 at 2 18 18 PM" src="https://user-images.githubusercontent.com/50160672/174933373-1ba6cadf-1c9a-48c3-aa58-984d0bd62d82.png">
 
-Built using:
+A modern, responsive **personal portfolio website** built with React, Bootstrap, and custom CSS animations.  
+It showcases my skills, projects, resume, and includes a fully functional **contact form** integrated with **Brevo (SendinBlue)** for sending emails.
 
-- Front-end library: React
-- CSS framework: React-bootstrap
-- CSS animations library: Animate.css
+<img width="1888" height="903" alt="Screenshot 2025-08-27 021729" src="https://github.com/user-attachments/assets/b2b99f29-4f69-4fd6-ae59-961fb14c87e0" />
 
-In the /personal-portfolio, you can run:
+<img width="1897" height="883" alt="Screenshot 2025-08-27 021757" src="https://github.com/user-attachments/assets/837d8dda-681f-4cdc-a817-d559e2920a34" />
 
-### `npm start`
+<img width="1894" height="890" alt="Screenshot 2025-08-27 021826" src="https://github.com/user-attachments/assets/9d7e9aab-a8a3-4adc-aa9e-7f458c874092" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+- 🎨 **Modern UI/UX** – clean layout, smooth animations, responsive design
+- 🌓 **Dark Theme Inspired** – starry night background with attractive gradients
+- 📜 **Resume Section** – quick access to my downloadable resume
+- 🛠️ **Projects Showcase** – carousel/grid of my best projects
+- 📧 **Contact Form** – send messages directly to my email via Brevo API
+- 📱 **Responsive** – works seamlessly across desktop, tablet, and mobile
+- 🌐 **Deployed on Vercel** – fast & free deployment with CI/CD from GitHub
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend:**
+  - React.js
+  - React-Bootstrap
+  - Animate.css
+  - Custom CSS (glassmorphism & gradients)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Backend (API):**
+  - Node.js (Express converted to Vercel Serverless Functions)
+  - Brevo (SendinBlue) Transactional Email API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Deployment:**
+  - Vercel
+
+---
+
+## 📂 Project Structure
+```plaintext
+├── public/ # Static assets
+├── src/
+│ ├── assets/ # Images, icons, fonts
+│ ├── components/ # React components (Navbar, Footer, Projects, Contact, etc.)
+│ ├── App.js # Main app entry
+│ ├── index.js # ReactDOM render
+├── api/
+│ └── contact.js # Serverless function for contact form
+├── package.json
+├── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/krishna0355/portfolio.git
+cd portfolio
+
+2. Install dependencies
+npm install
+
+3. Run locally
+npm start
+```
+
+The app runs on http://localhost:3000
+
+📡 Backend (Contact Form)
+
+The contact form uses a Vercel Serverless Function (api/contact.js) with Brevo.
+
+Setup environment variables
+
+## Create a .env file in your root:
+
+- **BREVO_API_KEY=your_brevo_api_key**
+- **EMAIL_TO=your_email@example.com**
+
+## 🌍 Deployment (Vercel)
+
+Push code to GitHub
+
+- **Go to Vercel**
+, import the repo
+
+Add environment variables (BREVO_API_KEY, EMAIL_TO) in Vercel dashboard
+
+Deploy 🚀
+
+
+## 📬 Contact Me:
+
+📧 Email: krishnakumaragarwal99@gmail.com
+
+💼 LinkedIn: Krishna Agarwal
+
+💻 GitHub: krishna0355
+
+## ⭐ Acknowledgements
+
+React
+
+Bootstrap
+
+Animate.css
+
+Brevo (SendinBlue)
+
+Vercel
+
+## 🖤 If you like this project, don’t forget to star ⭐ the repo!
+
+---
