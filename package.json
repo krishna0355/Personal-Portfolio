@@ -1,6 +1,6 @@
 {
   "name": "personal-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@sendinblue/client": "^3.3.1",
@@ -11,7 +11,6 @@
     "bootstrap": "^5.3.7",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "nodemailer": "^6.7.5",
     "react": "^18.1.0",
     "react-bootstrap": "^2.10.10",
     "react-bootstrap-icons": "^1.8.2",
@@ -26,8 +25,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
+    "start": "node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
